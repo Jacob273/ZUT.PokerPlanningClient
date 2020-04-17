@@ -4,8 +4,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="form-group col-md-12">
-                    <a href="#" class="btn btn-outline-secondary mr-1 mb-1" (click)="toggleSidebar()">Toggle</a>
-                    <a href="#" class="btn btn-secondary" (click)="toggleBackgroundImage()">Toggle Background Image</a>
+                    <a href="#" class="btn btn-outline-secondary mr-1 mb-2" (click)="toggleSidebar()">Menu  <i [ngClass]="(!getSideBarState())? 'fa fa-toggle-on' : 'fa fa-toggle-off'"></i></a>
                 </div>
             </div>
         </div>
