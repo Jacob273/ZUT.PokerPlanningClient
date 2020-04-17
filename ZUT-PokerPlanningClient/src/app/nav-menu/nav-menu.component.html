@@ -1,0 +1,15 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+        <a ngbNavLink routerLink="games">Games</a>
+        <ng-template ngbNavContent>First content</ng-template>
+      </li>     
+    <li ngbNavItem>
+      <a ngbNavLink routerLink="members">Members</a>
+      <ng-template ngbNavContent>Second content</ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink routerLink="settings">Settings</a>
+      <ng-template ngbNavContent>Third content</ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
