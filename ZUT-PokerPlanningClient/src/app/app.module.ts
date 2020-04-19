@@ -10,7 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { ProjectPlanningModule } from './project-planning/project-planning.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -19,15 +19,15 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    NavMenuComponent
+    SidebarComponent
   ],
   imports: [
     NgbModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    ProjectPlanningModule
   ],
   providers: [ {
     provide: PERFECT_SCROLLBAR_CONFIG,

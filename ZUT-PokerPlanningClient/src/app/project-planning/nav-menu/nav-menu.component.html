@@ -1,0 +1,12 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink routerLink="project-planning/games" class="tab-tabItem">Games</a>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink routerLink="project-planning/members" class="tab-tabItem">Members</a>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink routerLink="project-planning/settings" class="tab-tabItem">Settings</a>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
