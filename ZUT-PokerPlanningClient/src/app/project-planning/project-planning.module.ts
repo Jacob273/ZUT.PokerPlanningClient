@@ -17,6 +17,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProjectPlanningRoutingModule,
     NgbModule
   ],
-  exports: [NavMenuComponent],
+  exports: [ProjectPlanningComponent, NavMenuComponent],
 })
 export class ProjectPlanningModule { }
