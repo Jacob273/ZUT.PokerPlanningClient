@@ -53,4 +53,9 @@ export class SidebarComponent implements OnInit {
     return this.sidebarservice.hasBackgroundImage;
   }
 
+  changeProject(submenu: any) {
+    console.log(submenu.id);
+    return;
+  }
+
 }

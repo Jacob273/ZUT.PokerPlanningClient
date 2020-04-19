@@ -23,16 +23,19 @@ export class SidebarService {
       submenus: [
         {
           title: 'Project AAAAA',
+          id: 1,
           badge: {
             text: 'Pro ',
             class: 'badge-success'
           }
         },
         {
-          title: 'Project BBBB'
+          title: 'Project BBBB',
+          id: 2,
         },
         {
-          title: 'Project CCCC'
+          title: 'Project CCCC',
+          id: 3,
         }
       ]
     },
@@ -116,4 +119,6 @@ export class SidebarService {
   set hasBackgroundImage(hasBackgroundImage) {
     this._hasBackgroundImage = hasBackgroundImage;
   }
+
+  
 }
