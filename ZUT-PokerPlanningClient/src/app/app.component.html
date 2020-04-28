@@ -4,7 +4,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="form-group col-md-12">
-                    <a class="btn btn-outline-secondary mr-1 mb-2" (click)="toggleSidebar()">Menu  <i [ngClass]="(!getSideBarState())? 'fa fa-toggle-on' : 'fa fa-toggle-off'"></i></a>
+                    <a class="btn btn-outline-secondary mr-1 mb-2" (click)="toggleSidebar()">Menu <i
+                            [ngClass]="(!getSideBarState())? 'fa fa-toggle-on' : 'fa fa-toggle-off'"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <app-project-planning></app-project-planning>
                     <router-outlet></router-outlet>
                 </div>
@@ -12,4 +17,4 @@
         </div>
         <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
     </main>
- </div>
+</div>
