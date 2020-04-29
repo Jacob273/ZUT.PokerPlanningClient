@@ -24,7 +24,16 @@
             </span>
           </div>
         </div>
+
         <div class="sidebar-menu">
+          <ul>
+            <li>
+              <button class="btn btn-primary-orange btn-block mt-1"><i class="fa fa-rocket float-left"></i>Start Quick Game</button>
+            </li>
+            <li>
+              <button class="btn btn-primary btn-block mt-1"><i class="fa fa-plus float-left"></i>Add New Project</button>
+            </li>
+          </ul>
           <ul>
             <li *ngFor="let menu of menus" [ngClass]="{'active': menu.active , 'sidebar-dropdown':menu.type === 'dropdown' , 'header-menu':menu.type === 'header'}">
               <span *ngIf="menu.type === 'header'">{{menu.title}}</span>
