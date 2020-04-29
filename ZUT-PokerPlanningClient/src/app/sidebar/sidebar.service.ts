@@ -17,17 +17,12 @@ export class SidebarService {
       active: false,
       type: 'dropdown',
       badge: {
-        text: 'New ',
         class: 'badge-warning'
       },
       submenus: [
         {
           title: 'Project AAAAA',
           id: 1,
-          badge: {
-            text: 'Pro ',
-            class: 'badge-success'
-          }
         },
         {
           title: 'Project BBBB',
@@ -41,23 +36,15 @@ export class SidebarService {
     },
     {
       title: 'Chat',
-      icon: 'fa fa-globe',
+      icon: 'fa fa-comments',
       active: false,
       type: 'simple,',
-      badge: {
-        text: 'Beta',
-        class: 'badge-primary'
-      },
     },
     {
       title: 'Friends',
-      icon: 'fa fa-user',
+      icon: 'fa fa-user-friends',
       active: false,
       type: 'simple,',
-      badge: {
-        text: 'Beta',
-        class: 'badge-primary'
-      },
     },
     {
       title: 'Others',
@@ -65,33 +52,21 @@ export class SidebarService {
     },
     {
       title: 'History',
-      icon: 'fa fa-book',
+      icon: 'fa fa-history',
       active: false,
       type: 'simple',
-      badge: {
-        text: 'Beta',
-        class: 'badge-primary'
-      },
     },
     {
       title: 'Import/Export',
-      icon: 'fa fa-calendar',
+      icon: 'fa fa-file-import',
       active: false,
       type: 'simple',
-      badge: {
-        text: 'Beta',
-        class: 'badge-primary'
-      },
     },
     {
       title: 'Introduction',
-      icon: 'fa fa-gem',
+      icon: 'fa fa-info',
       active: false,
       type: 'simple',
-      badge: {
-        text: 'Beta',
-        class: 'badge-primary'
-      },
     }
   ];
   constructor() { }
