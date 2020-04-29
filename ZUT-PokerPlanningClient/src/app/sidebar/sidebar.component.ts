@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { SidebarService } from './sidebar.service';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,9 +16,11 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
     ])
   ]
 })
-export class SidebarComponent implements OnInit {
-  menus = [];
-  constructor(public sidebarservice: SidebarService) {
+export class SidebarComponent implements OnInit { 
+   menus = [];
+   modalRef: BsModalRef;
+
+   constructor(public sidebarservice: SidebarService, private modalService: BsModalService) {
     this.menus = sidebarservice.getMenuList();
    }
 
@@ -57,5 +60,12 @@ export class SidebarComponent implements OnInit {
     console.log(submenu.id);
     return;
   }
+
+  openModal(template: TemplateRef<any>) {
+    console.log('opening modal');
+    this.modalRef = this.modalService.show(template);
+    return;
+  }
+
 
 }

@@ -11,6 +11,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { ProjectPlanningModule } from './project-planning/project-planning.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -27,7 +28,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserAnimationsModule,
     AppRoutingModule,
     PerfectScrollbarModule,
-    ProjectPlanningModule
+    ProjectPlanningModule,
+    ModalModule.forRoot()
   ],
   providers: [ {
     provide: PERFECT_SCROLLBAR_CONFIG,
