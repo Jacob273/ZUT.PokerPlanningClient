@@ -1,18 +1,19 @@
-.mainContent{
-background-color: #f0f2f5;
-}
-
 .page-wrapper {
     height: 100vh;
+    background-color:#f0f2f5;
   
     .page-content {
       display: inline-block;
       width: 100%;
-      padding-top: 20px;
       transition: padding-left .3s ease;
   
       @media screen and (min-width: 768px) {
         padding-left: 260px;
+      }
+
+      .form-group {
+        background-color:white;
+        padding:20px;
       }
   
       .overlay {
