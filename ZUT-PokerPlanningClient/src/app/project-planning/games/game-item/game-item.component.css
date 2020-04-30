@@ -1,0 +1,69 @@
+div.game-item {
+    margin-top: 30px;
+    padding:5px;
+    border-radius: 4px;
+    box-shadow: 1px 3px 6px 1px #ccc;
+    display:inline-block;
+    height:180px;
+    width:100%;
+    min-width:34.5em;
+    max-width:868px;
+    background-color:white;
+    position:relative;
+}
+
+div.game-item-header {
+    height: 95px;
+    padding:10px;
+    position:relative
+}
+
+div.game-item-footer {
+    height: 60px;
+}
+
+div.game-item-title {
+    padding:10px;
+    font-size: 1.3em;
+    color: dodgerblue;
+    font-weight:bold;
+}
+
+div.game-item-options:before{
+    content: '\2807';
+    font-size: 2em;
+    position:absolute;
+    right:0px;
+    top:0px;
+    }
+
+div.game-item-info {
+    height: 60px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-right: solid 1px;
+    border-color: lightgrey;
+    display:inline-block;
+    text-align:center;
+}
+
+div.game-item-date {
+    position:absolute;
+    right:15px;
+    bottom:5px;
+    height: 20px;
+    font-weight:bold;
+    color:grey;
+    font-size:0.85em;
+}
+
+div.game-item-info-header {
+    padding:0.1em;
+    font-weight:bold;
+    color:#9f9f9f;
+}
+div.game-item-info-text {
+    padding:0.1em;
+    font-weight:bold;
+    color:#707070;
+}
