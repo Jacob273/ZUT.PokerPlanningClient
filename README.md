@@ -1,6 +1,6 @@
 # ZUT.PokerPlanningClient
 
-Aplikacja kliencka umozliwiajaca poker planning.
+Aplikacja kliencka umożliwiająca poker planning.
 
 https://en.wikipedia.org/wiki/Planning_poker
 
