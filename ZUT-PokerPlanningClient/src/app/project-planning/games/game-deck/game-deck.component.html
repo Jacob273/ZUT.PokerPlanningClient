@@ -1,0 +1,10 @@
+<div class="game-deck" [style]="'padding-left: calc(130px - ' + (100 / deck.length).toFixed(2) + '%)'">
+    <div *ngFor="let card of deck" class='game-card-item' [style]="card.cardStyle  + '; margin-left: calc(-130px + ' + (100 / deck.length).toFixed(2) + '%)'">
+        <div class='game-card-header' [style]="card.headerStyle">
+            {{ card.header }}
+        </div>
+        <div class='game-card-content' [style]="card.contentStyle">
+            {{ card.content }}
+        </div>
+    </div>
+</div>

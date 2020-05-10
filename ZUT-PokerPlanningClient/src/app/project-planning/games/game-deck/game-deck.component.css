@@ -1,0 +1,47 @@
+.game-deck {
+    position: relative;
+    min-width: 400px;
+    max-width: 1600px;
+    width: 100%;
+    display:block;
+    white-space: nowrap;
+}
+
+.game-card-item {
+    display: inline-block;
+    width: 130px;
+    height: 180px;
+    border-radius: 16px;
+    box-shadow: -3px 1px 12px 0px rgba(0, 0, 0, 0.32);
+    transition: transform 0.2s;
+}
+
+.game-card-item:hover {
+    z-index: 10;
+    transform: translate(0px, -20px);
+}
+
+.game-card-item:active {
+    transform: rotate(-10deg)  translate(-20px,-60px);
+}
+
+.game-card-header {
+    position: absolute;
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+}
+
+.game-card-content {
+    display: table-cell;
+    height: 180px;
+    width: 130px;
+    vertical-align: middle;
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    user-select: none;
+}
