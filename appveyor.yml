@@ -14,7 +14,8 @@ test_script:
 - node --version
 - npm --version
 - ng --version
-- ng build
-- npm start --prefix ./ZUT-PokerPlanningClient
+- cd ./ZUT-PokerPlanningClient
+- ng build 
+- npm start
   
   
