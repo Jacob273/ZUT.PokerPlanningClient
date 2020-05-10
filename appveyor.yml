@@ -7,7 +7,7 @@ init:
 
 install:
 - ps: Install-Product node $env:nodejs_version
-- npm install
+- npm install ./ZUT-PokerPlanningClient
 - npm install -g @angular/cli
   
 test_script:
