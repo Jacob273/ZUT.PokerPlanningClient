@@ -11,12 +11,12 @@ install:
 - ps: Install-Product node $env:nodejs_version
 - npm install -g @angular/cli
 - npm install
+- cmd: dir
   
 test_script:
 - node --version
 - npm --version
 - ng --version
 - ng build 
-- npm start
   
   
