@@ -13,6 +13,8 @@ install:
 test_script:
 - node --version
 - npm --version
+- ng --version
+- ng build
 - npm start --prefix ./ZUT-PokerPlanningClient
   
   
