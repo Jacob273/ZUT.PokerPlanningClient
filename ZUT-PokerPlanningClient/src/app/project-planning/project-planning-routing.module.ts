@@ -5,6 +5,7 @@ import { ProjectPlanningComponent } from './project-planning.component';
 import { GamesComponent } from './games/games.component';
 import { MembersComponent } from './members/members.component';
 import { SettingsComponent } from './settings/settings.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: 'project-planning', component: ProjectPlanningComponent},

@@ -9,6 +9,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameItemComponent } from './games/game-item/game-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { GameItemComponent } from './games/game-item/game-item.component';
   imports: [
     CommonModule,
     ProjectPlanningRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   exports: [ProjectPlanningComponent, NavMenuComponent],
 })

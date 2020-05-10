@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GameItem } from './../game-item';
+import { DeckType } from '../deck-type.enum';
 
 @Component({
   selector: 'app-game-item',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameItemComponent implements OnInit {
 
+  DeckType = DeckType;
+
+  @Input()  gameItem: GameItem;
   constructor() { }
 
   ngOnInit(): void {
