@@ -1,0 +1,17 @@
+init:
+  - cmd: ECHO Starting ZUT.PokerPlanning app building
+  - cmd: dir
+
+before_build:
+  # Get the latest stable version of Node.js or io.js
+    - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+  
+  test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  - npm start
+  
+  
