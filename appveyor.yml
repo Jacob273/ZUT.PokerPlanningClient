@@ -2,7 +2,7 @@ init:
   - cmd: ECHO Starting ZUT.PokerPlanning app building
   - cmd: dir
 
-before_build:
+install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
   
