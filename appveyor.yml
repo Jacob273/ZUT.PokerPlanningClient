@@ -1,3 +1,6 @@
+build: off
+
+
 init:
 - cmd: ECHO Starting ZUT.PokerPlanning app building
 - cmd: dir
