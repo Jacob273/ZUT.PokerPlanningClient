@@ -1,0 +1,22 @@
+build: off
+
+
+init:
+- cmd: ECHO Starting ZUT.PokerPlanning app building
+- cmd: dir
+
+install:
+- cd ./ZUT-PokerPlanningClient
+- cmd: dir
+- ps: Install-Product node $env:nodejs_version
+- npm install -g @angular/cli
+- npm install
+- cmd: dir
+  
+test_script:
+- node --version
+- npm --version
+- ng --version
+- ng build 
+  
+  
