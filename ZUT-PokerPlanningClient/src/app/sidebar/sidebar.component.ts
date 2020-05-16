@@ -1,7 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { SidebarService } from './sidebar.service';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -62,7 +61,6 @@ export class SidebarComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    console.log('opening modal');
     this.modalRef = this.modalService.show(template);
     return;
   }

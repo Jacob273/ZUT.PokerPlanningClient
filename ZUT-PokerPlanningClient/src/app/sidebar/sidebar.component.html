@@ -28,10 +28,13 @@
         <div class="sidebar-menu">
           <ul>
             <li>
-              <button class="btn btn-primary-orange btn-block mt-1" (click)="openModal(template)"><i class="fa fa-rocket float-left"></i>Start Quick Game</button>
+              <button class="btn btn-primary-orange btn-block mt-1"><i class="fa fa-rocket float-left"></i>Start Quick Game</button>
             </li>
             <li>
-              <button class="btn btn-primary btn-block mt-1" (click)="openModal(template)"><i class="fa fa-plus float-left"></i>Add New Project</button>
+              <button class="btn btn-primary btn-block mt-1" (click)="openModal(addNewProject)"><i class="fa fa-plus float-left"></i>Add New Project</button>
+            </li>
+            <li>
+              <button class="btn btn-primary btn-block mt-1" (click)="openModal(addTeamMembers)"><i class="fa fa-plus float-left"></i>Add Team Members</button>
             </li>
           </ul>
           <ul>
@@ -189,14 +192,39 @@
     </div>
   </nav>
 
-  <ng-template #template>
+  <ng-template #addNewProject>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Modal</h4>
+      <h4 class="modal-title pull-left">Add New Project</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      This is a modal.
+      
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Project name">
+        </div>
+        <!-- todo: make it possible to add several members from suggestions? -->
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Private - only team owners can add members">
+        </div>
+        <div class="float-right">
+          <button class="btn btn-primary">Cancel</button>
+          <button type="submit" class="btn btn-primary-orange ml-1">Create</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #addTeamMembers>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add team members</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- todo: add content-->
     </div>
   </ng-template>
