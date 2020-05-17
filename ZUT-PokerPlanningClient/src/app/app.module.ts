@@ -18,9 +18,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 Amplify.configure({
   Auth:{
     mandantorySignIn: true,
-    userPoolId: 'eu-west-1_WoBmVlz9W',
-    userPoolWebClientId: '5pcqsdqvlui7isqn0841fmbpai',
-    region: 'eu-west-1',
+    userPoolId: process.env.USER_POOL_ID,
+    userPoolWebClientId: process.env.USER_POOL_CLIENT_ID,
+    region: process.env.REGION,
   }
 })
 
