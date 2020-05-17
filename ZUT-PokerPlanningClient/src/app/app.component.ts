@@ -37,13 +37,13 @@ export class AppComponent {
       },
       {
         type: "given_name",
-        label: "Imię",
+        label: "Name",
         placeholder: "Enter your name",
         required: true,
       },
       {
         type: "family_name",
-        label: "Nazwisko",
+        label: "Surname",
         placeholder: "Enter your surname",
         required: true,
       },
