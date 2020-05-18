@@ -14,13 +14,14 @@ import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify from 'aws-amplify';
 import { ProjectPlanningModule } from './project-planning/project-planning.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {environment} from '../environments/environment';
 
 Amplify.configure({
   Auth:{
     mandantorySignIn: true,
-    userPoolId: process.env.USER_POOL_ID,
-    userPoolWebClientId: process.env.USER_POOL_CLIENT_ID,
-    region: process.env.REGION,
+    userPoolId: environment.USER_POOL_ID,
+    userPoolWebClientId: environment.USER_POOL_CLIENT_ID,
+    region: environment.REGION,
   }
 })
 
