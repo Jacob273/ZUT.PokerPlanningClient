@@ -10,11 +10,14 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameItemComponent } from './games/game-item/game-item.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GameDeckComponent } from './games/game-deck/game-deck.component';
+import { GameDeckComponent } from './game/game-deck/game-deck.component';
+import { GameComponent } from './game/game.component';
+import { UserCardItemComponent } from './game/user-card-item/user-card-item.component';
+import { UserCardItemListComponent } from './game/user-card-item-list/user-card-item-list.component';
 
 
 @NgModule({
-  declarations: [ProjectPlanningComponent, GamesComponent, MembersComponent, SettingsComponent, NavMenuComponent, GameItemComponent, GameDeckComponent],
+  declarations: [ProjectPlanningComponent, GamesComponent, MembersComponent, SettingsComponent, NavMenuComponent, GameItemComponent, GameDeckComponent, GameComponent, UserCardItemComponent, UserCardItemListComponent],
   imports: [
     CommonModule,
     ProjectPlanningRoutingModule,

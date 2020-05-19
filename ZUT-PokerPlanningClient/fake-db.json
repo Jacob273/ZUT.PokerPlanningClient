@@ -8,5 +8,14 @@
   ],
   "projects": [
     { "id": 1, "name": "project-1" }
+  ],
+
+  "users": [
+    { "id": 1, "name":"Michał", "surname":"Gzela" },
+    { "id": 2, "name":"Jakub", "surname":"Gmur" },
+    { "id": 3, "name":"Adrian", "surname":"Makowiak" },
+    { "id": 4, "name":"Dominik", "surname":"Waszczuk" },
+    { "id": 5, "name":"Karol", "surname":"Grzybowski" },
+    { "id": 6, "name":"Patryk", "surname":"Nowicki" }
   ]
 }

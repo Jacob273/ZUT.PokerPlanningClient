@@ -1,15 +1,1 @@
 <p>members works!</p>
-
-<!--This is just to present how it works. To be removed later.-->
-<app-game-deck></app-game-deck>
-
-<script>
-    var cards = document.getElementById("game-card-item");
-    for (var i = 0; i < cards.length; ++i) {
-        cards[i].addEventListener("click", function() {
-            var selectedCard = cards.getElementByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        })
-    }
-</script>
