@@ -9,6 +9,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameItemComponent } from './games/game-item/game-item.component';
+import { HttpClientModule } from '@angular/common/http';
 import { GameDeckComponent } from './games/game-deck/game-deck.component';
 
 
@@ -17,7 +18,8 @@ import { GameDeckComponent } from './games/game-deck/game-deck.component';
   imports: [
     CommonModule,
     ProjectPlanningRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   exports: [ProjectPlanningComponent, NavMenuComponent],
 })

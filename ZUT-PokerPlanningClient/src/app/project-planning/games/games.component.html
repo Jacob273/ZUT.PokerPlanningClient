@@ -1,4 +1,8 @@
 <div class="container">
-    <app-game-item></app-game-item>
-    <app-game-item></app-game-item>
+
+
+    <div *ngFor="let item of gameItems">
+        <app-game-item [gameItem]="item"></app-game-item>
+    </div>
+
 </div>

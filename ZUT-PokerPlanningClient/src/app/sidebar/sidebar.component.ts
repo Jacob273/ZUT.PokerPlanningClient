@@ -1,8 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { SidebarService } from './sidebar.service';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ProjectService } from '../shared/services/project.service';
+import { ProjectDTO } from '../shared/DTO/project-dto';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,12 +17,14 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
     ])
   ]
 })
-export class SidebarComponent implements OnInit { 
+export class SidebarComponent implements OnInit {
    menus = [];
    modalRef: BsModalRef;
+   projectService: ProjectService;
 
-   constructor(public sidebarservice: SidebarService, private modalService: BsModalService) {
+   constructor(public sidebarservice: SidebarService, private modalService: BsModalService, projectService: ProjectService) {
     this.menus = sidebarservice.getMenuList();
+    this.projectService = projectService;
    }
 
   ngOnInit() {
@@ -62,10 +65,20 @@ export class SidebarComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    console.log('opening modal');
     this.modalRef = this.modalService.show(template);
     return;
   }
 
+  onAddNewProjectFormSubmit(project: ProjectDTO){
+    console.log(project);
 
+    this.projectService.postProject(project).subscribe((response: any) => {
+      console.log(response);
+    }, (error: Error) => {
+      console.log('An error occured while trying to add a project.');
+    }, () => {
+      console.log('completed');
+    // subscription looks good!
+    });
+  }
 }
