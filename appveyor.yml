@@ -10,7 +10,7 @@ install:
 - cmd: dir
 - ps: Install-Product node $env:nodejs_version
 - npm install -g @angular/cli
-- npm install
+- npm ci
 - cmd: dir
   
 test_script:
