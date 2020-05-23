@@ -25,6 +25,20 @@ body {
   font-size: .9rem;
 }
 
+form{
+  display: flex;
+  margin-top: 48px;
+  justify-content: center;
+}
+.form-field{
+  background-color: red;
+}
+amplify-federated-sign-in, amplify-select-mfa-type, amplify-greetings, amplify-tooltip, amplify-icon-button, amplify-checkbox, amplify-link, amplify-nav, amplify-icon, amplify-totp-setup, amplify-radio-button, amplify-sign-in-button, amplify-amazon-button, amplify-auth0-button, amplify-facebook-button, amplify-google-button, amplify-oauth-button, amplify-strike, amplify-federated-buttons, amplify-loading-spinner, amplify-section, amplify-button, amplify-form-field, amplify-hint, amplify-input, amplify-label, amplify-auth-fields, amplify-phone-field, amplify-code-field, amplify-email-field, amplify-password-field, amplify-username-field, amplify-country-dial-code, amplify-select, amplify-form-section, amplify-sign-in, amplify-confirm-sign-in, amplify-confirm-sign-up, amplify-forgot-password, amplify-require-new-password, amplify-sign-up, amplify-verify-contact, amplify-toast {
+  display: flex;
+  margin-top: 48px;
+  justify-content: center;
+}
+
 .page-wrapper.toggled .sidebar {
   left: -300px;
 }
