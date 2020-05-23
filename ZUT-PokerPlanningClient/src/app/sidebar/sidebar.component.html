@@ -201,13 +201,13 @@
     </div>
     <div class="modal-body">
       
-      <form>
+      <form #addNewProjectForm="ngForm" (ngSubmit)="onAddNewProjectFormSubmit(addNewProjectForm.value)">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Project name">
+          <input  class="form-control" name="projectName" ngModel placeholder="Project name">
         </div>
         <!-- todo: make it possible to add several members? -->
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Private - only team owners can add members">
+          <input  class="form-control" name="members" ngModel placeholder="Private - only team owners can add members">
         </div>
         <div class="float-right">
           <button class="btn btn-primary">Cancel</button>
