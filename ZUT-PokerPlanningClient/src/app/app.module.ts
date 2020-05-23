@@ -14,9 +14,7 @@ import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify from 'aws-amplify';
 import { ProjectPlanningModule } from './project-planning/project-planning.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
-<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
-=======
 import {environment} from '../environments/environment';
 
 Amplify.configure({
@@ -27,7 +25,6 @@ Amplify.configure({
     region: environment.REGION,
   }
 })
->>>>>>> master
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
