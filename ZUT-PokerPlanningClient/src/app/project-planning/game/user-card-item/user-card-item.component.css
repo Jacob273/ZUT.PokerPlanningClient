@@ -1,0 +1,50 @@
+.game-user-element {
+    display: inline-block;
+}
+
+.test {
+    display:table-row;
+}
+
+.user-card {
+    display: table-cell;
+    border-radius: 4px;
+    background-color: white;
+    color: #9d9d9d;
+    border-color: #9d9d9d;
+    width: 50px;
+    height: 70px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.32);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.user-card:hover
+{
+    background-color: #9d9d9d;
+    color: white;
+    border-color: white;
+}
+
+.initials {
+    display: table-cell;
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.user-name {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    font-weight: bold;
+    color: #9d9d9d
+}

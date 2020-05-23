@@ -25,7 +25,7 @@ export class GamesComponent implements OnInit {
       }, (error: Error) => {
         console.log('An error occured while game items were retrieved.');
       }, () => {
-        //subscription looks good!
+        // subscription looks good!
       });
   }
 
