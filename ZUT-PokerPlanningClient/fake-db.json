@@ -7,7 +7,10 @@
   
   ],
   "projects": [
-    { "id": 1, "name": "project-1" }
+    { "id": "fe5de1cc-9cf3-11ea-bb37-0242ac130002", "name": "Gaming Team Project" },
+    { "id": "fe5de500-9cf3-11ea-bb37-0242ac130002", "name": "Maritime Team Project" },
+    { "id": "fe5de500-9cf3-11ea-bb37-0242ac130003", "name": "Automotive Team Project" },
+    { "id": "fe5de500-9cf3-11ea-bb37-0242ac130005", "name": "Video Team Project" }
   ],
 
   "users": [

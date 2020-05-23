@@ -1,75 +1,32 @@
 import { Injectable } from '@angular/core';
+import { ProjectService } from './../shared/services/project.service';
+import { MainMenuItem } from '../shared/model/main-menu-item';
+import { Badge } from '../shared/model/badge';
+import { ProjectDTO } from '../shared/DTO/project-dto';
+import { SubMenuItem } from '../shared/model/sub-menu-item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
+  
   toggled = false;
   _hasBackgroundImage = true;
-  menus = [
-    {
-      title: 'General',
-      type: 'header'
-    },
-    {
-      title: 'Projects',
-      icon: 'fa fa-tachometer-alt',
-      active: false,
-      type: 'dropdown',
-      badge: {
-        class: 'badge-warning'
-      },
-      submenus: [
-        {
-          title: 'Project AAAAA',
-          id: 1,
-        },
-        {
-          title: 'Project BBBB',
-          id: 2,
-        },
-        {
-          title: 'Project CCCC',
-          id: 3,
-        }
-      ]
-    },
-    {
-      title: 'Chat',
-      icon: 'fa fa-comments',
-      active: false,
-      type: 'simple,',
-    },
-    {
-      title: 'Friends',
-      icon: 'fa fa-user-friends',
-      active: false,
-      type: 'simple,',
-    },
-    {
-      title: 'Others',
-      type: 'header'
-    },
-    {
-      title: 'History',
-      icon: 'fa fa-history',
-      active: false,
-      type: 'simple',
-    },
-    {
-      title: 'Import/Export',
-      icon: 'fa fa-file-import',
-      active: false,
-      type: 'simple',
-    },
-    {
-      title: 'Introduction',
-      icon: 'fa fa-info',
-      active: false,
-      type: 'simple',
-    }
-  ];
-  constructor() { }
+  projects: ProjectDTO[];
+  mainMenuItems: MainMenuItem[];
+
+  generateStaticMenuItems(): MainMenuItem[] {
+    this.mainMenuItems = new Array();
+    this.mainMenuItems.push(new MainMenuItem('General', 'header', null, null, null, null));
+    this.mainMenuItems.push(new MainMenuItem('Projects', 'dropdown', 'fa fa-tachometer-alt', false, new Badge('badge-warning', null), null));
+    this.mainMenuItems.push(new MainMenuItem('Chat', 'simple', 'fa fa-comments', false, null, null));
+    this.mainMenuItems.push(new MainMenuItem('Friends', 'simple', 'fa fa-user-friends', false, null, null));
+    this.mainMenuItems.push(new MainMenuItem('Others', 'header', null, null, null, null));
+    this.mainMenuItems.push(new MainMenuItem('History', 'simple', 'fa fa-history', null, null, null));
+    this.mainMenuItems.push(new MainMenuItem('Import/Export', 'simple', 'fa fa-file-import', false, null, null));
+    this.mainMenuItems.push(new MainMenuItem('Introduction', 'simple',  'fa fa-info', false, null, null));
+    return this.mainMenuItems;
+  }
 
   toggle() {
     this.toggled = ! this.toggled;
@@ -83,8 +40,9 @@ export class SidebarService {
     this.toggled = state;
   }
 
-  getMenuList() {
-    return this.menus;
+  generateStaticMenuList() {
+    this.generateStaticMenuItems();
+    return this.mainMenuItems;
   }
 
   get hasBackgroundImage() {

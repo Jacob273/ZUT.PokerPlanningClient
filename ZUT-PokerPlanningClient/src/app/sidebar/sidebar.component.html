@@ -50,7 +50,7 @@
                 <ul>
                   <li *ngFor="let submenu of menu.submenus">
                     <a routerLink="project-planning" (click)='changeProject(submenu)'> {{submenu.title}} 
-                      <span *ngIf="submenu.badge" class="badge badge-pill" [ngClass]="submenu.badge.class">{{submenu.badge.text}}</span>
+                      <span *ngIf="submenu.badge" class="badge badge-pill" [ngClass]="submenu.badge.classes">{{submenu.badge.text}}</span>
                     </a>
                   </li>
                 </ul>

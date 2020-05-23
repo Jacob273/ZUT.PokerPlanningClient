@@ -1,4 +1,5 @@
 export class ProjectDTO {
-    projectName: string;
+    id: string;
+    name: string;
     members: string; // todo: members[] 
 }

@@ -20,4 +20,7 @@ export class ProjectService {
     return this.httpClient.post<any>(`${this.baseURL}projects`, projectDTO);
   }
 
+  getAllProjects(): Observable<ProjectDTO[]> {
+    return this.httpClient.get<ProjectDTO[]>(`${this.baseURL}projects`);
+  }
 }
