@@ -1,22 +1,28 @@
-<div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
-    <app-sidebar></app-sidebar>
-    <main class="page-content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <a class="btn btn-outline-secondary mr-1 mb-2" (click)="toggleSidebar()">Menu <i
-                            [ngClass]="(!getSideBarState())? 'fa fa-toggle-on' : 'fa fa-toggle-off'"></i></a>
+<amplify-authenticator class="test">
+    <amplify-sign-in  slot="sign-in"></amplify-sign-in>
+    <amplify-sign-up  header-text="Stwórz konto" [formFields]="formFields" slot="sign-up"></amplify-sign-up>
+    <amplify-forgot-password slot="forgot-password"></amplify-forgot-password>
+
+    <div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
+        <app-sidebar></app-sidebar>
+        <main class="page-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <a class="btn btn-outline-secondary mr-1 mb-2" (click)="toggleSidebar()">Menu <i
+                                [ngClass]="(!getSideBarState())? 'fa fa-toggle-on' : 'fa fa-toggle-off'"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ml-3">
+                        <app-project-planning></app-project-planning>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 ml-3">
-                    <app-project-planning></app-project-planning>
-                </div>
+            <div class="w-100 min-vh-100 mainContent">
+                <router-outlet></router-outlet>
             </div>
-        </div>
-        <div class="w-100 min-vh-100 mainContent">
-            <router-outlet></router-outlet>
-        </div>
-        <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
-    </main>
-</div>
+            <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
+        </main>
+    </div>
+</amplify-authenticator>
