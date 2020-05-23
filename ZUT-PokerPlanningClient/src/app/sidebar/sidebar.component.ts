@@ -4,6 +4,8 @@ import { SidebarService } from './sidebar.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ProjectService } from '../shared/services/project.service';
 import { ProjectDTO } from '../shared/DTO/project-dto';
+import { MainMenuItem } from './../shared/model/main-menu-item';
+import { SubMenuItem } from '../shared/model/sub-menu-item';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,16 +20,34 @@ import { ProjectDTO } from '../shared/DTO/project-dto';
   ]
 })
 export class SidebarComponent implements OnInit {
-   menus = [];
+   menus : MainMenuItem[];
    modalRef: BsModalRef;
    projectService: ProjectService;
 
    constructor(public sidebarservice: SidebarService, private modalService: BsModalService, projectService: ProjectService) {
-    this.menus = sidebarservice.getMenuList();
+    this.menus = sidebarservice.generateStaticMenuList();
     this.projectService = projectService;
    }
 
   ngOnInit() {
+
+     this.projectService.getAllProjects()
+     .subscribe((projects: ProjectDTO[]) => {
+      
+      let _subMenus : SubMenuItem[] = new Array();
+      
+       for(var i = 0 ; i < projects.length; i++){
+        _subMenus.push(new SubMenuItem(projects[i].id, projects[i].name));
+       }  
+
+       this.menus.find(x => x.title === 'Projects').submenus = _subMenus
+
+     }, (error: Error) => {
+       console.log('An error occured while projects items were retrieved.');
+     }, () => {
+       // subscription looks good!
+     });
+
   }
 
   getSideBarState() {
