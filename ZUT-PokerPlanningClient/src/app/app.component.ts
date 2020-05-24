@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormFieldTypes } from '@aws-amplify/ui-components';
 import { SidebarService } from './sidebar/sidebar.service';
-
+import { UserService } from './shared/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +10,13 @@ import { SidebarService } from './sidebar/sidebar.service';
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+  isLoggedIn = false;
   formFields: FormFieldTypes;
+  
 
   title = 'ZUT-PokerPlanningClient';
-  constructor(public sidebarservice: SidebarService) { 
-    
+  constructor(public sidebarservice: SidebarService, private userSerivce: UserService) { 
     this.formFields = [
       {
         type: "username",
@@ -49,6 +50,17 @@ export class AppComponent {
       },
     ];
   }
+
+  ngOnInit(){
+    this.userSerivce.isLoggedIn$.subscribe(
+      isLoggedIn => {
+        console.log(isLoggedIn);
+
+        return this.isLoggedIn = isLoggedIn;
+      }
+    );
+  }
+
   toggleSidebar() {
     this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
   }

@@ -1,9 +1,9 @@
 <amplify-authenticator class="test">
-    <amplify-sign-in  slot="sign-in"></amplify-sign-in>
+    <amplify-sign-in slot="sign-in"></amplify-sign-in>
     <amplify-sign-up  header-text="Stwórz konto" [formFields]="formFields" slot="sign-up"></amplify-sign-up>
     <amplify-forgot-password slot="forgot-password"></amplify-forgot-password>
 
-    <div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
+    <div *ngIf="isLoggedIn" class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
         <app-sidebar></app-sidebar>
         <main class="page-content">
             <div class="container-fluid">
