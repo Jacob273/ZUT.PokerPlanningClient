@@ -14,6 +14,7 @@ import { GameDeckComponent } from './game/game-deck/game-deck.component';
 import { GameComponent } from './game/game.component';
 import { UserCardItemComponent } from './game/user-card-item/user-card-item.component';
 import { UserCardItemListComponent } from './game/user-card-item-list/user-card-item-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UserCardItemListComponent } from './game/user-card-item-list/user-card-
     CommonModule,
     ProjectPlanningRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [ProjectPlanningComponent, NavMenuComponent],
 })
