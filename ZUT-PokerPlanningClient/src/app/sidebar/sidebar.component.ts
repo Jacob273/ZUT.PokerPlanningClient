@@ -36,7 +36,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.userService.auth$.subscribe(({ firstName, lastName }) => {
-      console.log(firstName);
       this.user.firstName = firstName;
       this.user.lastName = `${lastName.slice(0,1)}.`;
     });

@@ -44,12 +44,11 @@ export class UserService {
     );
 
     // Use Hub channel 'auth' to get notified on changes
-    Hub.listen('auth', ({ payload: { event, data, message } }) => {
-      console.log('signIn');
+    Hub.listen('auth', ({ payload: {event, data, message}}) => {
       if (event === 'signIn') {
         // On 'signIn' event, the data is a CognitoUser object
         this.setUser(data);
-      } else {
+      }else if (event === 'signOut'){
         this._authState.next(initialAuthState);
       }
     });
