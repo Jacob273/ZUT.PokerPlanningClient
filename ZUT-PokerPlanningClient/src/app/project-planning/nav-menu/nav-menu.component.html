@@ -33,8 +33,34 @@
         </div> 
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-primary-orange">Start New Game</button></div>
-
+        <button type="button" class="btn btn-primary-orange" (click)="openModal(addNewGame)">Start New Game</button></div>
     </div>
   </div>
 </div>
+
+<ng-template #addNewGame>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add New Game</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form #addNewGameForm="ngForm" (ngSubmit)="onAddNewGameFormSubmit(addNewGameForm.value)">
+      <div class="form-group">
+        <input class="form-control" name="title" ngModel placeholder="Game name">
+      </div>
+
+      <div class="form-group">
+        <input class="form-control" name="stories" ngModel placeholder="Stories" disabled>
+      </div>
+      <button class="btn btn-primary disabled">Import / Add Stories</button>
+
+      <div class="float-right">
+        <button class="btn btn-primary">Cancel</button>
+        <button type="submit" class="btn btn-primary-orange ml-1">Create</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
