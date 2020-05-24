@@ -43,19 +43,19 @@ export class SidebarComponent implements OnInit {
 
     this.projectService.getAllProjects()
       .subscribe((projects: ProjectDTO[]) => {
-    let _subMenus : SubMenuItem[] = new Array();
-      
-       for(var i = 0 ; i < projects.length; i++){
+      let _subMenus : SubMenuItem[] = new Array();
+        
+      for(var i = 0 ; i < projects.length; i++){
         _subMenus.push(new SubMenuItem(projects[i].id, projects[i].name));
-       }  
+      }  
 
-       this.menus.find(x => x.title === 'Projects').submenus = _subMenus
+      this.menus.find(x => x.title === 'Projects').submenus = _subMenus;
 
-     }, (error: Error) => {
-       console.log('An error occured while projects items were retrieved.');
-     }, () => {
+    }, (error: Error) => {
+      console.log('An error occured while projects items were retrieved.');
+    }, () => {
        // subscription looks good!
-     });
+    });
 
   }
 
