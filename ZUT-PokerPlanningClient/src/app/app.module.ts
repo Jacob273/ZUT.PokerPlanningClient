@@ -11,7 +11,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import { ProjectPlanningModule } from './project-planning/project-planning.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
@@ -23,8 +23,19 @@ Amplify.configure({
     userPoolId: environment.USER_POOL_ID,
     userPoolWebClientId: environment.USER_POOL_CLIENT_ID,
     region: environment.REGION,
+  },
+  API:{
+    endpoints: [
+      {
+        name: "RestApi",
+        endpoint: environment.REST_API,
+        custom_header: async () => { 
+          return {  Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`, }
+        }
+      }
+    ]
   }
-})
+});
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
