@@ -39,26 +39,25 @@
       "userStoriesCount": 33,
       "assignedPointsCount": 0,
       "created": "2020-05-10"
+    },
+    {
+      "title": "",
+      "id": 5
+    },
+    {
+      "title": "",
+      "id": 6
+    },
+    {
+      "title": "",
+      "id": 7
+    },
+    {
+      "title": "",
+      "id": 8
     }
   ],
-  "projects": [
-    {
-      "id": "fe5de1cc-9cf3-11ea-bb37-0242ac130002",
-      "name": "Gaming Team Project"
-    },
-    {
-      "id": "fe5de500-9cf3-11ea-bb37-0242ac130002",
-      "name": "Maritime Team Project"
-    },
-    {
-      "id": "fe5de500-9cf3-11ea-bb37-0242ac130003",
-      "name": "Automotive Team Project"
-    },
-    {
-      "id": "fe5de500-9cf3-11ea-bb37-0242ac130005",
-      "name": "Video Team Project"
-    }
-  ],
+  "projects": [],
   "users": [
     {
       "id": 1,
