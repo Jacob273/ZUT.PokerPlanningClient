@@ -48,7 +48,7 @@
               <div *ngIf="menu.type === 'dropdown'" class="sidebar-submenu" [@slide]="getState(menu)">
                 <ul>
                   <li *ngFor="let submenu of menu.submenus">
-                    <a routerLink="project-planning" (click)='changeProject(submenu)'> {{submenu.title}} 
+                    <a routerLink="project-planning/games" (click)='changeProject(submenu)'> {{submenu.title}} 
                       <span *ngIf="submenu.badge" class="badge badge-pill" [ngClass]="submenu.badge.classes">{{submenu.badge.text}}</span>
                     </a>
                   </li>
@@ -207,7 +207,8 @@
         </div>
         <!-- todo: make it possible to add several members? -->
         <div class="form-group">
-          <input  class="form-control" name="members" ngModel placeholder="Private - only team owners can add members">
+          <!-- TODO: replace with select -->
+          <input  class="form-control" name="projectType" ngModel placeholder="Private/Public">
         </div>
         <div class="float-right">
           <button class="btn btn-primary">Cancel</button>

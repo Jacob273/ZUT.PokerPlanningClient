@@ -1,26 +1,22 @@
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, EventEmitter } from '@angular/core';
 import { ProjectDTO } from '../DTO/project-dto';
-import { Observable } from 'rxjs';
+import { API } from 'aws-amplify';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  private httpClient: HttpClient;
-  private baseURL = environment.baseUrl;
+  public projectCreatedWithSuccess = new EventEmitter<any>();
 
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
+  constructor() {}
+
+  async postProject(project: ProjectDTO): Promise<void> {
+    const data = await API.post('RestApi', 'projects', {body: project});
+    this.projectCreatedWithSuccess.emit(data);
   }
-
-  postProject(projectDTO: ProjectDTO): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseURL}projects`, projectDTO);
-  }
-
-  getAllProjects(): Observable<ProjectDTO[]> {
-    return this.httpClient.get<ProjectDTO[]>(`${this.baseURL}projects`);
+  //TODO: Change any
+  getAllProjects(): Promise<any> {
+    return API.get('RestApi', 'projects', {});
   }
 }
