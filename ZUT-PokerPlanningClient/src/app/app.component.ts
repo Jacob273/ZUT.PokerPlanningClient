@@ -12,11 +12,12 @@ import { UserService } from './shared/services/user.service';
 
 export class AppComponent implements OnInit{
   isLoggedIn = false;
+  activeProject = false;
   formFields: FormFieldTypes;
   
 
   title = 'ZUT-PokerPlanningClient';
-  constructor(public sidebarservice: SidebarService, private userSerivce: UserService) { 
+  constructor(public sidebarservice: SidebarService, private userSerivce: UserService) {
     this.formFields = [
       {
         type: "username",
@@ -53,11 +54,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.userSerivce.isLoggedIn$.subscribe(
-      isLoggedIn => {
-        console.log(isLoggedIn);
-
-        return this.isLoggedIn = isLoggedIn;
-      }
+      isLoggedIn => this.isLoggedIn = isLoggedIn
     );
   }
 
