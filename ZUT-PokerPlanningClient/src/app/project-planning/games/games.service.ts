@@ -1,8 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { GameItem } from './game-item';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { API } from 'aws-amplify';
 import { GameDTO } from 'src/app/shared/DTO/game-dto';
 
 @Injectable({
@@ -11,33 +8,27 @@ import { GameDTO } from 'src/app/shared/DTO/game-dto';
 
 export class GamesService {
   
-  private httpClient: HttpClient;
-  private baseURL = environment.baseUrl;
+  // TODO: add types
+  public gameCreatedWithSuccess = new EventEmitter<any>();
 
-  public gameCreatedWithSuccess;
+  constructor() {}
 
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-    this.gameCreatedWithSuccess =  new EventEmitter<GameDTO>();
+  getAllGames(projectId): Promise<any> {
+    return API.get('RestApi', `games?projectId=${projectId}`, {});
   }
-
-  getAllGames(): Observable<GameItem[]> {
-    return this.httpClient.get<GameItem[]>(`${this.baseURL}games`);
-  }
-
-  postGame(gameDTO: GameDTO): Observable<GameDTO> {
-
-    const observablePostedGame = this.httpClient.post<any>(`${this.baseURL}games`, gameDTO);
-
-    observablePostedGame.subscribe((response: GameDTO) => {
-      this.gameCreatedWithSuccess.emit(response);
-      console.log('emiting');
-    }, (error: Error) => {
-      console.log('An error occured while trying to create game.');
-    }, () => {
-      console.log('completed');
+  // TODO: add types
+  async postGame(game: GameDTO, projectId: string): Promise<any> {
+    const gameRequestData = {
+      projectId,
+      gameName: game.title,
+      stories: game.stories.split('\n').map(storyName => ({
+        storyName,
+      }))
+    };
+    const data = await API.post('RestApi', 'games', {
+      body: gameRequestData,    
     });
-
-    return observablePostedGame;
+    this.gameCreatedWithSuccess.emit(data);
+    return data;
   }
 }

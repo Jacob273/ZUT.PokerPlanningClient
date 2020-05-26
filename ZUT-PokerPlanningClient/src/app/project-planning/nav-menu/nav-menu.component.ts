@@ -3,6 +3,7 @@ import { GamesService } from './../games/games.service';
 import { GameDTO } from 'src/app/shared/DTO/game-dto';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { GameItem } from '../games/game-item';
+import { UIStateService } from 'src/app/shared/services/ui-state.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,16 +11,25 @@ import { GameItem } from '../games/game-item';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent implements OnInit {
-
+  project: {isActive: boolean; projectName: string, projectId: string};
   modalRef: BsModalRef;
+  private uiService: UIStateService;
   private gamesService: GamesService;
   private modalService: BsModalService;
-  constructor(gamesService: GamesService, modalService: BsModalService) {
+  constructor(gamesService: GamesService, modalService: BsModalService, uiStateService: UIStateService) {
+    this.uiService = uiStateService;
     this.gamesService = gamesService;
     this.modalService = modalService;
   }
 
   ngOnInit(): void {
+    this.uiService.project$.subscribe(({isActive, projectName, projectId}) => {
+      this.project = {
+        isActive,
+        projectId,
+        projectName,
+      }
+    });
   }
 
   openModal(template: TemplateRef<any>) {
@@ -27,13 +37,9 @@ export class NavMenuComponent implements OnInit {
     return;
   }
 
-  onAddNewGameFormSubmit(gameObj: GameDTO) {
-    this.gamesService.postGame(gameObj).subscribe((response: any) => {
-      this.modalRef.hide();
-    }, (error: Error) => {
-      console.log('An error occured while trying to create game.');
-    }, () => {
-      // subscription looks good!
-    });
+  async onAddNewGameFormSubmit(gameObj: GameDTO) {
+    console.log(gameObj);
+    const data = await this.gamesService.postGame(gameObj, this.project.projectId);
+    this.modalRef.hide();
   }
 }

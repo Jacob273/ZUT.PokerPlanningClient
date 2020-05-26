@@ -1,8 +1,7 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GameItem } from './game-item';
-import { Subscription } from 'rxjs';
 import { GamesService } from './games.service';
-import { GameDTO } from 'src/app/shared/DTO/game-dto';
+import { UIStateService } from 'src/app/shared/services/ui-state.service';
 
 @Component({
   selector: 'app-games',
@@ -10,30 +9,29 @@ import { GameDTO } from 'src/app/shared/DTO/game-dto';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit {
-
-  constructor(gamesService: GamesService) {
+  constructor(gamesService: GamesService, uiService: UIStateService) {
     this.gamesService = gamesService;
+    this.uiService = uiService;
   }
 
   gameItems: GameItem[] = [];
+  private fetchedProjectId = '';
   private gamesService: GamesService;
-  private gamesSubscription: Subscription;
+  private uiService: UIStateService;
 
-  ngOnInit(): void {
-    this.gamesService.gameCreatedWithSuccess.subscribe((gameDTO: GameDTO)=> {
-        this.GetAllGames();
-      });
-      
-    this.GetAllGames();
-  }
+  async ngOnInit(): Promise<void> {
+    this.uiService.project$.subscribe(async (data) => {
+      if(this.fetchedProjectId !== data.projectId){
+        this.fetchedProjectId = data.projectId;
+        const {games} = await this.gamesService.getAllGames(data.projectId);
+        this.gameItems = games;
+      }
+    });
 
-  private GetAllGames() {
-    this.gamesSubscription = this.gamesService.getAllGames()
-      .subscribe((gameItems: GameItem[]) => {
-        this.gameItems = gameItems;
-      }, (error: Error) => {
-        console.log('An error occured while game items were retrieved.');
-      }, () => {
-      });
+    this.gamesService.gameCreatedWithSuccess.subscribe(async (game) => {
+      const copyGameItems = [...this.gameItems];
+      copyGameItems.unshift(game);
+      this.gameItems = copyGameItems;
+    });
   }
 }
