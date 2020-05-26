@@ -2,7 +2,6 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { GamesService } from './../games/games.service';
 import { GameDTO } from 'src/app/shared/DTO/game-dto';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { GameItem } from '../games/game-item';
 import { UIStateService } from 'src/app/shared/services/ui-state.service';
 
 @Component({
@@ -38,7 +37,6 @@ export class NavMenuComponent implements OnInit {
   }
 
   async onAddNewGameFormSubmit(gameObj: GameDTO) {
-    console.log(gameObj);
     const data = await this.gamesService.postGame(gameObj, this.project.projectId);
     this.modalRef.hide();
   }
