@@ -7,6 +7,7 @@ import { UserService } from '../shared/services/user.service';
 import { ProjectDTO } from '../shared/DTO/project-dto';
 import { MainMenuItem } from './../shared/model/main-menu-item';
 import { SubMenuItem } from '../shared/model/sub-menu-item';
+import { UIStateService } from '../shared/services/ui-state.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,39 +24,34 @@ import { SubMenuItem } from '../shared/model/sub-menu-item';
 export class SidebarComponent implements OnInit {
   menus : MainMenuItem[];
   modalRef: BsModalRef;
-  projectService: ProjectService;
-  userService: UserService;
+  private projectService: ProjectService;
+  private uiService: UIStateService; 
+  private userService: UserService;
   user: {firstName: string; lastName: string} = {firstName: "", lastName: ""}
   
 
-  constructor(public sidebarservice: SidebarService, private modalService: BsModalService, projectService: ProjectService, userService: UserService) {
+  constructor(public sidebarservice: SidebarService, private modalService: BsModalService, projectService: ProjectService, userService: UserService, uiService: UIStateService) {
     this.menus = sidebarservice.generateStaticMenuList();
     this.projectService = projectService;
     this.userService = userService;
+    this.uiService = uiService;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.userService.auth$.subscribe(({ firstName, lastName }) => {
       this.user.firstName = firstName;
       this.user.lastName = `${lastName.slice(0,1)}.`;
     });
 
-    this.projectService.getAllProjects()
-      .subscribe((projects: ProjectDTO[]) => {
-      let _subMenus : SubMenuItem[] = new Array();
-        
-      for(var i = 0 ; i < projects.length; i++){
-        _subMenus.push(new SubMenuItem(projects[i].id, projects[i].name));
-      }  
-
-      this.menus.find(x => x.title === 'Projects').submenus = _subMenus;
-
-    }, (error: Error) => {
-      console.log('An error occured while projects items were retrieved.');
-    }, () => {
-       // subscription looks good!
+    this.projectService.projectCreatedWithSuccess.subscribe(data => {
+      const updatedSubmenus = this.menus.find(el => el.title === 'Projects').submenus;
+      updatedSubmenus.push(new SubMenuItem(data.projectId, data.projectName));
+      this.menus.find(el => el.title === 'Projects').submenus = updatedSubmenus;
+      this.modalRef.hide();
     });
-
+    const data = await this.projectService.getAllProjects();
+    const projectSubmenus = data.projects.map((project) => new SubMenuItem(project.projectId, project.projectName));
+    this.menus.find(el => el.title === 'Projects').submenus = projectSubmenus;
   }
 
   getSideBarState() {
@@ -88,7 +84,7 @@ export class SidebarComponent implements OnInit {
   }
 
   changeProject(submenu: any) {
-    console.log(submenu.id);
+    this.uiService.setActiveProject(submenu);
     return;
   }
 
@@ -98,15 +94,6 @@ export class SidebarComponent implements OnInit {
   }
 
   onAddNewProjectFormSubmit(project: ProjectDTO){
-    console.log(project);
-
-    this.projectService.postProject(project).subscribe((response: any) => {
-      console.log(response);
-    }, (error: Error) => {
-      console.log('An error occured while trying to add a project.');
-    }, () => {
-      console.log('completed');
-    // subscription looks good!
-    });
+    this.projectService.postProject(project);
   }
 }

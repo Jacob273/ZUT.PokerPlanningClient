@@ -1,7 +1,11 @@
-<div class="row">
+<div *ngIf="project.isActive" class="row">
   <div class="container-fluid">
     <div class="row">
       <div class="col-8">
+        <div class="nav-menu-container">
+          <div class="nav-menu-project-title">
+            {{project.projectName}}
+          </div>
         <ul ngbNav #nav="ngbNav">
           <li ngbNavItem>
             <a ngbNavLink routerLink="project-planning/games" class="tab-tabItem">Games</a>
@@ -16,6 +20,7 @@
             <a ngbNavLink routerLink="project-planning/game" class="tab-tabItem">Game</a>
           </li>
         </ul>
+      </div>
         <div [ngbNavOutlet]="nav"></div>
       </div>
       <div class="col-2">
@@ -53,10 +58,8 @@
       </div>
 
       <div class="form-group">
-        <input class="form-control" name="stories" ngModel placeholder="Stories" disabled>
+        <textarea class="form-control" name="stories" ngModel placeholder="Seperate stories with enter"></textarea>
       </div>
-      <button class="btn btn-primary disabled">Import / Add Stories</button>
-
       <div class="float-right">
         <button class="btn btn-primary">Cancel</button>
         <button type="submit" class="btn btn-primary-orange ml-1">Create</button>

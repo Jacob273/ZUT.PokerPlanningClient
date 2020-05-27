@@ -1,29 +1,29 @@
 <div class="row">
-    <div class="col-md-1 col-sm-0"></div>
-    <div class="col-md-10 col-sm-12 game-item">
-        <div class='game-item-header'>
-            <div class='game-item-title'>
-                {{ gameItem.title }}
-            </div>
-            <div class='game-item-options'></div>
-        </div>
-        <div class='game-item-footer'>
-            <div class='game-item-info'>
-                <div class='game-item-info-header'>Stories</div>
-                <div class='game-item-info-text'>   {{ gameItem.userStoriesVotedCount }}/    {{ gameItem.userStoriesCount }}</div>
-            </div>
-            <div class='game-item-info'>
-                <div class='game-item-info-header'>Assigned Points</div>
-                <div class='game-item-info-text'>   {{ gameItem.assignedPointsCount }}</div>
-            </div>
-            <div class='game-item-info'>
-                <div class='game-item-info-header'>Deck Type</div>
-                <div class='game-item-info-text'>   {{ DeckType[gameItem.deckType]}} </div>
-            </div>
-        </div>
-        <div class='game-item-date'>
-            {{ gameItem.created }}
-        </div>
+  <div class="col-md-1 col-sm-0"></div>
+  <div class="col-md-10 col-sm-12 game-item">
+    <div class='game-item-header'>
+      <div class='game-item-title'>
+        {{ gameItem.gameName }}
+      </div>
+      <div class='game-item-options'></div>
     </div>
-    <div class="col-md-1 col-sm-0"></div>
+    <div class='game-item-footer'>
+      <div class='game-item-info'>
+        <div class='game-item-info-header'>Stories</div>
+        <div class='game-item-info-text'>   0/{{ gameItem.stories.length }}</div>
+      </div>
+      <div class='game-item-info'>
+        <div class='game-item-info-header'>Assigned Points</div>
+        <div class='game-item-info-text'>0</div>
+      </div>
+      <div class='game-item-info'>
+        <div class='game-item-info-header'>Deck Type</div>
+        <div class='game-item-info-text'>{{ DeckType[0]}}</div>
+      </div>
+    </div>
+    <div class='game-item-date'>
+      {{ gameItem.createdAt.split('T')[0] }}
+    </div>
+  </div>
+  <div class="col-md-1 col-sm-0"></div>
 </div>
